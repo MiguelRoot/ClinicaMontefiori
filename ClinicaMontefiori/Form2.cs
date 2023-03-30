@@ -25,6 +25,7 @@ namespace ClinicaMontefiori
 
         private DataTable cargarTable(string name_usp)
         {
+            // comentario test
             SqlDataAdapter da = new SqlDataAdapter(name_usp, cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -34,6 +35,11 @@ namespace ClinicaMontefiori
         private void Form2_Load(object sender, EventArgs e)
         {
             dataTableDoctor.DataSource = cargarTable("doctorList");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
