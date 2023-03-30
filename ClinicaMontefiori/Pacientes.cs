@@ -13,11 +13,10 @@ using System.Data.SqlClient;
 
 namespace ClinicaMontefiori
 {
-    public partial class Form4 : Form
+    public partial class Pacientes : Form
     {
-
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
-        public Form4()
+        public Pacientes()
         {
             InitializeComponent();
         }
@@ -30,9 +29,21 @@ namespace ClinicaMontefiori
             return dt;
         }
 
-        private void Form4_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            dataTableCitaMedica.DataSource = cargarTable("clienteList");
+
+            dataTableCliente.DataSource = cargarTable("clienteList");
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

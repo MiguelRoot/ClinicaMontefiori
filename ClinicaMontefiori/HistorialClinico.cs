@@ -13,33 +13,30 @@ using System.Data.SqlClient;
 
 namespace ClinicaMontefiori
 {
-    
-    public partial class Form2 : Form
+    public partial class HistorialClinico : Form
     {
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
-        public Form2()
+        public HistorialClinico()
         {
             InitializeComponent();
         }
 
+        private void btnCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private DataTable cargarTable(string name_usp)
         {
-            // comentario test
             SqlDataAdapter da = new SqlDataAdapter(name_usp, cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e)
         {
-            dataTableDoctor.DataSource = cargarTable("doctorList");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
+            dataTableHistorial.DataSource = cargarTable("historialClinicoList");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicaMontefiori
 {
-    partial class Form3
+    partial class Recepcionista
     {
         /// <summary>
         /// Required designer variable.

@@ -13,17 +13,12 @@ using System.Data.SqlClient;
 
 namespace ClinicaMontefiori
 {
-    public partial class Form5 : Form
+    public partial class Recepcionista : Form
     {
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
-        public Form5()
+        public Recepcionista()
         {
             InitializeComponent();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private DataTable cargarTable(string name_usp)
@@ -34,9 +29,9 @@ namespace ClinicaMontefiori
             return dt;
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
-            dataTableTriage.DataSource = cargarTable("triageList");
+            dataTableRecepcionista.DataSource = cargarTable("recepcionistaList");
         }
     }
 }

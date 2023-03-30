@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicaMontefiori
 {
-    partial class Form1
+    partial class Pacientes
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -66,8 +66,9 @@ namespace ClinicaMontefiori
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(751, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mantenimiento paciente";
+            this.label1.Text = "Mantenimiento pacientes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -284,7 +285,7 @@ namespace ClinicaMontefiori
             this.button5.Text = "Eliminar";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -316,8 +317,8 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.id);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Pacientes";
+            this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableCliente)).EndInit();
             this.ResumeLayout(false);
