@@ -66,21 +66,21 @@ namespace ClinicaMontefiori
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clienteToolStripMenuItem.Text = "Paciente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // doctorToolStripMenuItem
             // 
             this.doctorToolStripMenuItem.Name = "doctorToolStripMenuItem";
-            this.doctorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.doctorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.doctorToolStripMenuItem.Text = "Doctor";
             this.doctorToolStripMenuItem.Click += new System.EventHandler(this.doctorToolStripMenuItem_Click);
             // 
             // recepcionistaToolStripMenuItem
             // 
             this.recepcionistaToolStripMenuItem.Name = "recepcionistaToolStripMenuItem";
-            this.recepcionistaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionistaToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.recepcionistaToolStripMenuItem.Text = "Recepcionista";
             this.recepcionistaToolStripMenuItem.Click += new System.EventHandler(this.recepcionistaToolStripMenuItem_Click);
             // 
@@ -97,21 +97,21 @@ namespace ClinicaMontefiori
             // historialClínicoToolStripMenuItem
             // 
             this.historialClínicoToolStripMenuItem.Name = "historialClínicoToolStripMenuItem";
-            this.historialClínicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historialClínicoToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.historialClínicoToolStripMenuItem.Text = "Historial clínico";
             this.historialClínicoToolStripMenuItem.Click += new System.EventHandler(this.historialClínicoToolStripMenuItem_Click);
             // 
             // citasToolStripMenuItem
             // 
             this.citasToolStripMenuItem.Name = "citasToolStripMenuItem";
-            this.citasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.citasToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.citasToolStripMenuItem.Text = "Citas";
             this.citasToolStripMenuItem.Click += new System.EventHandler(this.citasToolStripMenuItem_Click);
             // 
             // triajeToolStripMenuItem
             // 
             this.triajeToolStripMenuItem.Name = "triajeToolStripMenuItem";
-            this.triajeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.triajeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.triajeToolStripMenuItem.Text = "Triaje";
             this.triajeToolStripMenuItem.Click += new System.EventHandler(this.triajeToolStripMenuItem_Click);
             // 
@@ -126,7 +126,6 @@ namespace ClinicaMontefiori
             this.Name = "Portada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clinica Montefiori";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

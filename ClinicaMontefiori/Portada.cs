@@ -31,7 +31,7 @@ namespace ClinicaMontefiori
 
         private void doctorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Doctor formularioDoctor = new Doctor();
+            FormDoctor formularioDoctor = new FormDoctor();
             formularioDoctor.MdiParent = this;
             formularioDoctor.Show();
         }

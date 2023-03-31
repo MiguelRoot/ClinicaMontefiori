@@ -36,7 +36,7 @@ namespace ClinicaMontefiori
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            dataTableTriage.DataSource = cargarTable("triageList");
+            dataTableTriage.DataSource = cargarTable("triajeList");
         }
     }
 }

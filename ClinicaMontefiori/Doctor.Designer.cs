@@ -1,7 +1,7 @@
 ﻿
 namespace ClinicaMontefiori
 {
-    partial class Doctor
+    partial class FormDoctor
     {
         /// <summary>
         /// Required designer variable.
@@ -30,23 +30,23 @@ namespace ClinicaMontefiori
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.textId = new System.Windows.Forms.TextBox();
+            this.textNombre = new System.Windows.Forms.TextBox();
+            this.textPaterno = new System.Windows.Forms.TextBox();
+            this.textDni = new System.Windows.Forms.TextBox();
+            this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textEspecialidad = new System.Windows.Forms.TextBox();
+            this.textMaterno = new System.Windows.Forms.TextBox();
             this.dataTableDoctor = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableDoctor)).BeginInit();
             this.SuspendLayout();
@@ -61,79 +61,83 @@ namespace ClinicaMontefiori
             this.label1.Text = "Mantenimiento doctor";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // textId
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 20);
-            this.textBox1.TabIndex = 2;
+            this.textId.Location = new System.Drawing.Point(141, 80);
+            this.textId.Name = "textId";
+            this.textId.Size = new System.Drawing.Size(118, 20);
+            this.textId.TabIndex = 2;
             // 
-            // textBox2
+            // textNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 20);
-            this.textBox2.TabIndex = 3;
+            this.textNombre.Location = new System.Drawing.Point(141, 117);
+            this.textNombre.Name = "textNombre";
+            this.textNombre.Size = new System.Drawing.Size(118, 20);
+            this.textNombre.TabIndex = 3;
             // 
-            // textBox3
+            // textPaterno
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 154);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 20);
-            this.textBox3.TabIndex = 4;
+            this.textPaterno.Location = new System.Drawing.Point(141, 154);
+            this.textPaterno.Name = "textPaterno";
+            this.textPaterno.Size = new System.Drawing.Size(118, 20);
+            this.textPaterno.TabIndex = 4;
             // 
-            // textBox4
+            // textDni
             // 
-            this.textBox4.Location = new System.Drawing.Point(371, 117);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
+            this.textDni.Location = new System.Drawing.Point(371, 117);
+            this.textDni.Name = "textDni";
+            this.textDni.Size = new System.Drawing.Size(156, 20);
+            this.textDni.TabIndex = 5;
             // 
-            // button1
+            // btn_nuevo
             // 
-            this.button1.Location = new System.Drawing.Point(286, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Location = new System.Drawing.Point(286, 81);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(75, 23);
+            this.btn_nuevo.TabIndex = 6;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_editar
             // 
-            this.button2.Location = new System.Drawing.Point(369, 81);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_editar.Location = new System.Drawing.Point(369, 81);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(75, 23);
+            this.btn_editar.TabIndex = 7;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btn_cancelar
             // 
-            this.button3.Location = new System.Drawing.Point(452, 81);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Location = new System.Drawing.Point(452, 81);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelar.TabIndex = 8;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btn_guardar
             // 
-            this.button4.Location = new System.Drawing.Point(608, 191);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_guardar.Location = new System.Drawing.Point(608, 191);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_guardar.TabIndex = 9;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btn_eliminar
             // 
-            this.button5.Location = new System.Drawing.Point(699, 191);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Eliminar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Location = new System.Drawing.Point(699, 191);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_eliminar.TabIndex = 10;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // label2
             // 
@@ -189,29 +193,34 @@ namespace ClinicaMontefiori
             this.label7.TabIndex = 16;
             this.label7.Text = "Especialidad";
             // 
-            // textBox5
+            // textEspecialidad
             // 
-            this.textBox5.Location = new System.Drawing.Point(371, 154);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
+            this.textEspecialidad.Location = new System.Drawing.Point(371, 154);
+            this.textEspecialidad.Name = "textEspecialidad";
+            this.textEspecialidad.Size = new System.Drawing.Size(156, 20);
+            this.textEspecialidad.TabIndex = 5;
             // 
-            // textBox6
+            // textMaterno
             // 
-            this.textBox6.Location = new System.Drawing.Point(141, 192);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(118, 20);
-            this.textBox6.TabIndex = 5;
+            this.textMaterno.Location = new System.Drawing.Point(141, 192);
+            this.textMaterno.Name = "textMaterno";
+            this.textMaterno.Size = new System.Drawing.Size(118, 20);
+            this.textMaterno.TabIndex = 5;
             // 
             // dataTableDoctor
             // 
+            this.dataTableDoctor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTableDoctor.Location = new System.Drawing.Point(12, 238);
             this.dataTableDoctor.Name = "dataTableDoctor";
+            this.dataTableDoctor.ReadOnly = true;
+            this.dataTableDoctor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataTableDoctor.Size = new System.Drawing.Size(776, 200);
             this.dataTableDoctor.TabIndex = 17;
+            this.dataTableDoctor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableDoctor_CellClick);
+            this.dataTableDoctor.SelectionChanged += new System.EventHandler(this.dataTableDoctor_SelectionChanged);
             // 
-            // Form2
+            // FormDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -223,20 +232,20 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btn_eliminar);
+            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_editar);
+            this.Controls.Add(this.btn_nuevo);
+            this.Controls.Add(this.textMaterno);
+            this.Controls.Add(this.textEspecialidad);
+            this.Controls.Add(this.textDni);
+            this.Controls.Add(this.textPaterno);
+            this.Controls.Add(this.textNombre);
+            this.Controls.Add(this.textId);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "FormDoctor";
+            this.Text = "Mantenimiento doctor";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableDoctor)).EndInit();
             this.ResumeLayout(false);
@@ -247,23 +256,23 @@ namespace ClinicaMontefiori
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox textNombre;
+        private System.Windows.Forms.TextBox textPaterno;
+        private System.Windows.Forms.TextBox textDni;
+        private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textEspecialidad;
+        private System.Windows.Forms.TextBox textMaterno;
         private System.Windows.Forms.DataGridView dataTableDoctor;
     }
 }
