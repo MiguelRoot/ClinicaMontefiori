@@ -15,6 +15,7 @@ namespace ClinicaMontefiori
 {
     public partial class Recepcionista : Form
     {
+        string flagAccion = "";
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
         public Recepcionista()
         {
@@ -32,6 +33,39 @@ namespace ClinicaMontefiori
         private void Form3_Load(object sender, EventArgs e)
         {
             dataTableRecepcionista.DataSource = cargarTable("recepcionistaList");
+        }
+
+
+        void generaId()
+        {
+            int idnewRecepcionista = 0;
+            cn.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("generar_id_recepcionista", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                idnewRecepcionista = (int)cmd.ExecuteScalar();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            txtcodigo.Text = idnewRecepcionista.ToString();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            flagAccion = "Nuevo";
+            //statusFormNuevo();
+            generaId();
+            //formLimpiar();
+
         }
     }
 }

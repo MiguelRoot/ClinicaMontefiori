@@ -107,8 +107,6 @@ CREATE TABLE tb_recepcionista (
   numero_movil VARCHAR(20)
 );
 
-
-
 -- Agregar relaciones de clave foránea a tb_citas
 ALTER TABLE tb_citas
 ADD FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id),
@@ -282,6 +280,48 @@ GO
 CREATE PROCEDURE recepcionistaList
 AS
 SELECT * FROM tb_recepcionista
+GO
+
+CREATE PROCEDURE generar_id_recepcionista
+AS
+SELECT MAX(id + 1) FROM tb_recepcionista
+GO
+
+CREATE PROCEDURE add_recepcionista
+  @id int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @numeromovil INT
+AS
+INSERT INTO tb_recepcionista VALUES(@id, @nombre, @apellido_paterno, @apellido_materno, @dni, @numeromovil);
+GO
+
+CREATE PROCEDURE update_recepcionista
+  @id int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @numeromovil INT
+AS
+BEGIN
+	UPDATE tb_recepcionista
+		SET nombre = @nombre,
+		apellido_paterno = @apellido_paterno,
+		apellido_materno = @apellido_materno,
+		dni = @dni,
+		numeromovil = @numeromovil
+	WHERE id = @id
+END
+
+GO
+
+CREATE PROCEDURE datele_recepcionista
+@id varchar(3)
+AS
+ DELETE add_recepcionista WHERE id=@id
 
 GO
 

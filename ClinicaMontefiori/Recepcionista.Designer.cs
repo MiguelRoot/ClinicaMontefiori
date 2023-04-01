@@ -44,7 +44,7 @@ namespace ClinicaMontefiori
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtcodigo = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dataTableRecepcionista = new System.Windows.Forms.DataGridView();
@@ -125,7 +125,7 @@ namespace ClinicaMontefiori
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(600, 95);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 25;
@@ -135,7 +135,7 @@ namespace ClinicaMontefiori
             // bntEditar
             // 
             this.bntEditar.Location = new System.Drawing.Point(489, 95);
-            this.bntEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntEditar.Margin = new System.Windows.Forms.Padding(4);
             this.bntEditar.Name = "bntEditar";
             this.bntEditar.Size = new System.Drawing.Size(100, 28);
             this.bntEditar.TabIndex = 24;
@@ -145,17 +145,18 @@ namespace ClinicaMontefiori
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(379, 95);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 28);
             this.btnNuevo.TabIndex = 23;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(183, 231);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(156, 22);
             this.textBox6.TabIndex = 20;
@@ -163,7 +164,7 @@ namespace ClinicaMontefiori
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(529, 185);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(132, 22);
             this.textBox5.TabIndex = 21;
@@ -171,7 +172,7 @@ namespace ClinicaMontefiori
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(529, 139);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 22;
@@ -179,7 +180,7 @@ namespace ClinicaMontefiori
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(183, 185);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(156, 22);
             this.textBox3.TabIndex = 19;
@@ -187,23 +188,23 @@ namespace ClinicaMontefiori
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(183, 139);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 22);
             this.textBox2.TabIndex = 18;
             // 
-            // textBox1
+            // txtcodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 94);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 22);
-            this.textBox1.TabIndex = 17;
+            this.txtcodigo.Location = new System.Drawing.Point(183, 94);
+            this.txtcodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcodigo.Name = "txtcodigo";
+            this.txtcodigo.Size = new System.Drawing.Size(156, 22);
+            this.txtcodigo.TabIndex = 17;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(936, 230);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 28);
             this.btnEliminar.TabIndex = 33;
@@ -213,7 +214,7 @@ namespace ClinicaMontefiori
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(819, 230);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 28);
             this.btnGuardar.TabIndex = 32;
@@ -224,7 +225,7 @@ namespace ClinicaMontefiori
             // 
             this.dataTableRecepcionista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTableRecepcionista.Location = new System.Drawing.Point(19, 281);
-            this.dataTableRecepcionista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataTableRecepcionista.Margin = new System.Windows.Forms.Padding(4);
             this.dataTableRecepcionista.Name = "dataTableRecepcionista";
             this.dataTableRecepcionista.RowHeadersWidth = 56;
             this.dataTableRecepcionista.Size = new System.Drawing.Size(1032, 258);
@@ -252,9 +253,9 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtcodigo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Recepcionista";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -281,7 +282,7 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dataTableRecepcionista;
