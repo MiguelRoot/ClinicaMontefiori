@@ -23,7 +23,7 @@ namespace ClinicaMontefiori
 
         private void label5_Click(object sender, EventArgs e)
         {
-
+           //avance
         }
 
         private DataTable cargarTable(string name_usp)
