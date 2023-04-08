@@ -67,5 +67,10 @@ namespace ClinicaMontefiori
             //formLimpiar();
 
         }
+
+        private void bntEditar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

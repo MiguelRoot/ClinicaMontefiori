@@ -141,6 +141,7 @@ namespace ClinicaMontefiori
             this.bntEditar.TabIndex = 24;
             this.bntEditar.Text = "Editar";
             this.bntEditar.UseVisualStyleBackColor = true;
+            this.bntEditar.Click += new System.EventHandler(this.bntEditar_Click);
             // 
             // btnNuevo
             // 
