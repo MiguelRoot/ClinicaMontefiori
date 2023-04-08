@@ -40,7 +40,7 @@ namespace ClinicaMontefiori
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtApellidoMaterno = new System.Windows.Forms.TextBox();
-            this.txtNumeroMovil = new System.Windows.Forms.TextBox();
+            this.txtnumero_movil = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtApellidoPaterno = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -163,13 +163,13 @@ namespace ClinicaMontefiori
             this.txtApellidoMaterno.Size = new System.Drawing.Size(156, 22);
             this.txtApellidoMaterno.TabIndex = 20;
             // 
-            // txtNumeroMovil
+            // txtnumero_movil
             // 
-            this.txtNumeroMovil.Location = new System.Drawing.Point(529, 185);
-            this.txtNumeroMovil.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumeroMovil.Name = "txtNumeroMovil";
-            this.txtNumeroMovil.Size = new System.Drawing.Size(132, 22);
-            this.txtNumeroMovil.TabIndex = 21;
+            this.txtnumero_movil.Location = new System.Drawing.Point(529, 185);
+            this.txtnumero_movil.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnumero_movil.Name = "txtnumero_movil";
+            this.txtnumero_movil.Size = new System.Drawing.Size(132, 22);
+            this.txtnumero_movil.TabIndex = 21;
             // 
             // txtDNI
             // 
@@ -258,7 +258,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtApellidoMaterno);
-            this.Controls.Add(this.txtNumeroMovil);
+            this.Controls.Add(this.txtnumero_movil);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.txtApellidoPaterno);
             this.Controls.Add(this.txtNombre);
@@ -287,7 +287,7 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtApellidoMaterno;
-        private System.Windows.Forms.TextBox txtNumeroMovil;
+        private System.Windows.Forms.TextBox txtnumero_movil;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtApellidoPaterno;
         private System.Windows.Forms.TextBox txtNombre;

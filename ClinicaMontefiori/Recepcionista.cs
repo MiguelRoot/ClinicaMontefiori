@@ -40,7 +40,7 @@ namespace ClinicaMontefiori
             txtApellidoPaterno.Enabled = valor;
             txtApellidoMaterno.Enabled = valor;
             txtDNI.Enabled = valor;
-            txtNumeroMovil.Enabled = valor;
+            txtnumero_movil.Enabled = valor;
 
         }
         void habilitarBotones(Boolean valor)
@@ -64,7 +64,7 @@ namespace ClinicaMontefiori
             txtApellidoPaterno.Text = "";
             txtApellidoMaterno.Text = "";
             txtDNI.Text = "";
-            txtNumeroMovil.Text = "";
+            txtnumero_movil.Text = "";
         }
 
 
@@ -83,7 +83,7 @@ namespace ClinicaMontefiori
                 txtApellidoPaterno.Text = dgvRecepcionista.CurrentRow.Cells[2].Value.ToString();
                 txtApellidoMaterno.Text = dgvRecepcionista.CurrentRow.Cells[3].Value.ToString();
                 txtDNI.Text = dgvRecepcionista.CurrentRow.Cells[4].Value.ToString();
-                txtNumeroMovil.Text = dgvRecepcionista.CurrentRow.Cells[5].Value.ToString();
+                txtnumero_movil.Text = dgvRecepcionista.CurrentRow.Cells[5].Value.ToString();
 
 
             }
@@ -201,7 +201,7 @@ namespace ClinicaMontefiori
                 cmd.Parameters.AddWithValue("@apellido_paterno", txtApellidoPaterno.Text);
                 cmd.Parameters.AddWithValue("@apellido_materno", txtApellidoMaterno.Text);
                 cmd.Parameters.AddWithValue("@dni", txtDNI.Text);
-                cmd.Parameters.AddWithValue("@numeromovil", txtNumeroMovil.Text);
+                cmd.Parameters.AddWithValue("@numeromovil", txtnumero_movil.Text);
 
 
                 //Ejecutamos el SqlCommand
@@ -265,7 +265,7 @@ namespace ClinicaMontefiori
                 cmd.Parameters.AddWithValue("@apellido_paterno", txtApellidoPaterno.Text);
                 cmd.Parameters.AddWithValue("@apellido_materno", txtApellidoMaterno.Text);
                 cmd.Parameters.AddWithValue("@dni", txtDNI.Text);
-                cmd.Parameters.AddWithValue("@numeromovil", txtNumeroMovil.Text);
+                cmd.Parameters.AddWithValue("@numeromovil", txtnumero_movil.Text);
 
 
 
