@@ -16,7 +16,7 @@ namespace ClinicaMontefiori
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Recepcionista());
+            Application.Run(new HistorialClinico());
         }
     }
 }
