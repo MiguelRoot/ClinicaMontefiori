@@ -34,5 +34,7 @@ namespace ClinicaMontefiori
         {
             dataTableCitaMedica.DataSource = cargarTable("clienteList");
         }
+
+       
     }
 }

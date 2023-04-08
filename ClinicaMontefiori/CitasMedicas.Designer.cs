@@ -34,7 +34,6 @@ namespace ClinicaMontefiori
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,7 +45,7 @@ namespace ClinicaMontefiori
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dataTableCitaMedica = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableCitaMedica)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,13 +88,6 @@ namespace ClinicaMontefiori
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(120, 20);
             this.dateTimePicker2.TabIndex = 5;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(314, 118);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 6;
             // 
             // label2
             // 
@@ -198,11 +190,20 @@ namespace ClinicaMontefiori
             this.dataTableCitaMedica.Size = new System.Drawing.Size(776, 242);
             this.dataTableCitaMedica.TabIndex = 17;
             // 
-            // Form4
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(314, 119);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(122, 20);
+            this.textBox3.TabIndex = 18;
+            
+            // 
+            // CitasMedicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dataTableCitaMedica);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNuevo);
@@ -214,16 +215,14 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form4";
+            this.Name = "CitasMedicas";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableCitaMedica)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -237,7 +236,6 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -249,5 +247,6 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dataTableCitaMedica;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
