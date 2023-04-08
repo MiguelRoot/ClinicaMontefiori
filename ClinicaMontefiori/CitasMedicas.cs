@@ -33,6 +33,7 @@ namespace ClinicaMontefiori
 
         private void Form4_Load(object sender, EventArgs e)
         {
+          //koijuijki
             dataTableCitaMedica.DataSource = cargarTable("clienteList");
         }
 
