@@ -213,9 +213,9 @@ END
 GO
 
 CREATE PROCEDURE datele_doctor
-@id varchar(3);
+@id int
 AS
- DELETE add_doctor WHERE id=@id;
+ DELETE tb_doctor WHERE id=@id;
 
 GO
 
