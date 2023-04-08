@@ -37,18 +37,18 @@ namespace ClinicaMontefiori
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.bntEditar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtcodigo = new System.Windows.Forms.TextBox();
+            this.txtApellidoMaterno = new System.Windows.Forms.TextBox();
+            this.txtNumeroMovil = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtApellidoPaterno = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dataTableRecepcionista = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTableRecepcionista)).BeginInit();
+            this.dgvRecepcionista = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecepcionista)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,17 +131,18 @@ namespace ClinicaMontefiori
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // bntEditar
+            // btnEditar
             // 
-            this.bntEditar.Location = new System.Drawing.Point(489, 95);
-            this.bntEditar.Margin = new System.Windows.Forms.Padding(4);
-            this.bntEditar.Name = "bntEditar";
-            this.bntEditar.Size = new System.Drawing.Size(100, 28);
-            this.bntEditar.TabIndex = 24;
-            this.bntEditar.Text = "Editar";
-            this.bntEditar.UseVisualStyleBackColor = true;
-            this.bntEditar.Click += new System.EventHandler(this.bntEditar_Click);
+            this.btnEditar.Location = new System.Drawing.Point(489, 95);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(100, 28);
+            this.btnEditar.TabIndex = 24;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.bntEditar_Click);
             // 
             // btnNuevo
             // 
@@ -154,53 +155,53 @@ namespace ClinicaMontefiori
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // textBox6
+            // txtApellidoMaterno
             // 
-            this.textBox6.Location = new System.Drawing.Point(183, 231);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(156, 22);
-            this.textBox6.TabIndex = 20;
+            this.txtApellidoMaterno.Location = new System.Drawing.Point(183, 231);
+            this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoMaterno.Name = "txtApellidoMaterno";
+            this.txtApellidoMaterno.Size = new System.Drawing.Size(156, 22);
+            this.txtApellidoMaterno.TabIndex = 20;
             // 
-            // textBox5
+            // txtNumeroMovil
             // 
-            this.textBox5.Location = new System.Drawing.Point(529, 185);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 22);
-            this.textBox5.TabIndex = 21;
+            this.txtNumeroMovil.Location = new System.Drawing.Point(529, 185);
+            this.txtNumeroMovil.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroMovil.Name = "txtNumeroMovil";
+            this.txtNumeroMovil.Size = new System.Drawing.Size(132, 22);
+            this.txtNumeroMovil.TabIndex = 21;
             // 
-            // textBox4
+            // txtDNI
             // 
-            this.textBox4.Location = new System.Drawing.Point(529, 139);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 22);
-            this.textBox4.TabIndex = 22;
+            this.txtDNI.Location = new System.Drawing.Point(529, 139);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(132, 22);
+            this.txtDNI.TabIndex = 22;
             // 
-            // textBox3
+            // txtApellidoPaterno
             // 
-            this.textBox3.Location = new System.Drawing.Point(183, 185);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 22);
-            this.textBox3.TabIndex = 19;
+            this.txtApellidoPaterno.Location = new System.Drawing.Point(183, 185);
+            this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoPaterno.Name = "txtApellidoPaterno";
+            this.txtApellidoPaterno.Size = new System.Drawing.Size(156, 22);
+            this.txtApellidoPaterno.TabIndex = 19;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(183, 139);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 22);
-            this.textBox2.TabIndex = 18;
+            this.txtNombre.Location = new System.Drawing.Point(183, 139);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(156, 22);
+            this.txtNombre.TabIndex = 18;
             // 
-            // txtcodigo
+            // txtCodigo
             // 
-            this.txtcodigo.Location = new System.Drawing.Point(183, 94);
-            this.txtcodigo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtcodigo.Name = "txtcodigo";
-            this.txtcodigo.Size = new System.Drawing.Size(156, 22);
-            this.txtcodigo.TabIndex = 17;
+            this.txtCodigo.Location = new System.Drawing.Point(183, 94);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(156, 22);
+            this.txtCodigo.TabIndex = 17;
             // 
             // btnEliminar
             // 
@@ -211,6 +212,7 @@ namespace ClinicaMontefiori
             this.btnEliminar.TabIndex = 33;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -221,23 +223,29 @@ namespace ClinicaMontefiori
             this.btnGuardar.TabIndex = 32;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // dataTableRecepcionista
+            // dgvRecepcionista
             // 
-            this.dataTableRecepcionista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTableRecepcionista.Location = new System.Drawing.Point(19, 281);
-            this.dataTableRecepcionista.Margin = new System.Windows.Forms.Padding(4);
-            this.dataTableRecepcionista.Name = "dataTableRecepcionista";
-            this.dataTableRecepcionista.RowHeadersWidth = 56;
-            this.dataTableRecepcionista.Size = new System.Drawing.Size(1032, 258);
-            this.dataTableRecepcionista.TabIndex = 34;
+            this.dgvRecepcionista.AllowUserToAddRows = false;
+            this.dgvRecepcionista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecepcionista.Location = new System.Drawing.Point(52, 266);
+            this.dgvRecepcionista.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvRecepcionista.Name = "dgvRecepcionista";
+            this.dgvRecepcionista.ReadOnly = true;
+            this.dgvRecepcionista.RowHeadersWidth = 56;
+            this.dgvRecepcionista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecepcionista.Size = new System.Drawing.Size(971, 266);
+            this.dgvRecepcionista.TabIndex = 41;
+            this.dgvRecepcionista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecepcionista_CellClick);
+            this.dgvRecepcionista.SelectionChanged += new System.EventHandler(this.dgvRecepcionista_SelectionChanged);
             // 
             // Recepcionista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.dataTableRecepcionista);
+            this.Controls.Add(this.dgvRecepcionista);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label7);
@@ -247,20 +255,20 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.bntEditar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txtcodigo);
+            this.Controls.Add(this.txtApellidoMaterno);
+            this.Controls.Add(this.txtNumeroMovil);
+            this.Controls.Add(this.txtDNI);
+            this.Controls.Add(this.txtApellidoPaterno);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Recepcionista";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataTableRecepcionista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecepcionista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,16 +284,16 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button bntEditar;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtcodigo;
+        private System.Windows.Forms.TextBox txtApellidoMaterno;
+        private System.Windows.Forms.TextBox txtNumeroMovil;
+        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtApellidoPaterno;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DataGridView dataTableRecepcionista;
+        private System.Windows.Forms.DataGridView dgvRecepcionista;
     }
 }

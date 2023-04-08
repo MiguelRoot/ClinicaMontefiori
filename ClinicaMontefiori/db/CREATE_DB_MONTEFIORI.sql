@@ -312,7 +312,7 @@ BEGIN
 		apellido_paterno = @apellido_paterno,
 		apellido_materno = @apellido_materno,
 		dni = @dni,
-		numeromovil = @numeromovil
+		numero_movil = @numeromovil
 	WHERE id = @id
 END
 
