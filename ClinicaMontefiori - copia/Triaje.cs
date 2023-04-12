@@ -13,21 +13,20 @@ using System.Data.SqlClient;
 
 namespace ClinicaMontefiori
 {
-    public partial class CitasMedicas : Form
+    public partial class Triaje : Form
     {
-
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnx"].ConnectionString);
-
         //Definimos un flag para realizar la inserción o actualización
         string flagAccion = "";
-        public CitasMedicas()
+        public Triaje()
         {
             InitializeComponent();
         }
 
-        private DataTable ListarCita()
+
+        private DataTable ListarTriaje()
         {
-            SqlDataAdapter da = new SqlDataAdapter("clitasList", cn);
+            SqlDataAdapter da = new SqlDataAdapter("triajeList", cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
@@ -36,19 +35,19 @@ namespace ClinicaMontefiori
         {
             //Cuando valor = false -->Deshabilitamos las cajas de texto, los combo box y los datetimepicker
             //Cuando valor = true  -->Habilitamos las cajas de texto, los combo box y los datetimepicker
-            txtCodigo.Enabled = valor;
-            txtCliente.Enabled = valor;
-            txtRecepcionista.Enabled = valor;
-            txtDoctor.Enabled = valor;
-            dtpfecha.Enabled = valor;
-            dtphora.Enabled = valor;
-           txtDuracion.Enabled = valor;
+            txtIdCodigo.Enabled = valor;
+            txtIdCliente.Enabled = valor;
+            dtpFecha.Enabled = valor;
+            txtTemperatura.Enabled = valor;
+            txtPeso.Enabled = valor;
+            txtFrecuenciaCardiaca.Enabled = valor;
+            txtPresionarterial.Enabled = valor;
         }
         void habilitarBotones(Boolean valor)
         {
             //Cuando valor = false -->Deshabilitamos el DataGridView y los botones Editar y Eliminar 
             //Cuando valor = true  -->Habilitamos el DataGridView y los botones Editar y Eliminar
-            dgvCitas.Enabled = valor;
+            dgvTriaje.Enabled = valor;
             btnEditar.Enabled = valor;
             btnEliminar.Enabled = valor;
 
@@ -60,29 +59,31 @@ namespace ClinicaMontefiori
         {
             //Limpiamos las cajas de texto e inicializamos los combo box y datetimepicker 
 
-            txtCodigo.Text = "";
-            txtCliente.Text = "";
-            txtRecepcionista.Text = "";
-            txtDoctor.Text = "";
-            dtpfecha.Value = DateTime.Today;
-            dtphora.Value = DateTime.Today;
-            txtDuracion.Text = "";
+            txtIdCodigo.Text = "";
+            txtIdCliente.Text = "";
+            dtpFecha.Value = DateTime.Today;
+            txtTemperatura.Text = "";
+            txtPeso.Text = "";
+            txtFrecuenciaCardiaca.Text = "";
+            txtPresionarterial.Text = "";
+
         }
-         private void Form4_Load(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
-            dgvCitas.DataSource = ListarCita();
+
+            dgvTriaje.DataSource = ListarTriaje();
         }
         void navegarEmpleados()
         {
-            if (dgvCitas.CurrentRow != null)
+            if (dgvTriaje.CurrentRow != null)
             {
-                txtCodigo.Text = dgvCitas.CurrentRow.Cells[0].Value.ToString();
-                txtCliente.Text = dgvCitas.CurrentRow.Cells[1].Value.ToString();
-                txtRecepcionista.Text = dgvCitas.CurrentRow.Cells[2].Value.ToString();
-                txtDoctor.Text = dgvCitas.CurrentRow.Cells[3].Value.ToString();
-                dtpfecha.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells[4].Value.ToString());
-                dtphora.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells[5].Value.ToString());
-                txtDuracion.Text = dgvCitas.CurrentRow.Cells[6].Value.ToString();
+                txtIdCodigo.Text = dgvTriaje.CurrentRow.Cells[0].Value.ToString();
+                txtIdCliente.Text = dgvTriaje.CurrentRow.Cells[1].Value.ToString();
+                dtpFecha.Value = Convert.ToDateTime(dgvTriaje.CurrentRow.Cells[2].Value.ToString());
+                txtTemperatura.Text = dgvTriaje.CurrentRow.Cells[3].Value.ToString();
+                txtPeso.Text = dgvTriaje.CurrentRow.Cells[4].Value.ToString();
+                txtFrecuenciaCardiaca.Text = dgvTriaje.CurrentRow.Cells[5].Value.ToString();
+                txtPresionarterial.Text = dgvTriaje.CurrentRow.Cells[6].Value.ToString();
 
             }
         }
@@ -102,7 +103,7 @@ namespace ClinicaMontefiori
             habilitarBotones(false);
 
             //Seleccionamos el Focus del control TextBox txtCodigo
-            txtCodigo.Focus();
+            txtIdCodigo.Focus();
             //////////////////////////////////////////
 
 
@@ -123,7 +124,7 @@ namespace ClinicaMontefiori
             btnEliminar.Enabled = false;
 
             //Seleccionamos el Focus del control TextBox txtNombre
-            txtCodigo.Focus();
+            txtIdCodigo.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -140,6 +141,8 @@ namespace ClinicaMontefiori
 
             navegarEmpleados();
         }
+
+   
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -194,7 +197,7 @@ namespace ClinicaMontefiori
 
                     //Definimos el SqlCommand, le asignamos la transacción y definimos el CommandType
 
-                    SqlCommand cmd = new SqlCommand("usp_deleteCitas", cn, trx);
+                    SqlCommand cmd = new SqlCommand("usp_deleteTriaje", cn, trx);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -202,7 +205,7 @@ namespace ClinicaMontefiori
 
                     //Agregamos los parámetros
 
-                    cmd.Parameters.AddWithValue("@id", txtCodigo.Text);
+                    cmd.Parameters.AddWithValue("@id", txtIdCodigo.Text);
 
 
 
@@ -240,7 +243,7 @@ namespace ClinicaMontefiori
 
                 //Mostramos la lista de clientes en el DataGridView
 
-                dgvCitas.DataSource = ListarCita();
+                dgvTriaje.DataSource = ListarTriaje();
 
 
 
@@ -264,13 +267,14 @@ namespace ClinicaMontefiori
 
             }
         }
-
-        private void dgvCitas_CellClick(object sender, DataGridViewCellEventArgs e)
+    
+        
+        private void dgvTriaje_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             navegarEmpleados();
         }
 
-        private void dgvCitas_SelectionChanged(object sender, EventArgs e)
+        private void dgvTriaje_SelectionChanged(object sender, EventArgs e)
         {
             navegarEmpleados();
         }
@@ -281,7 +285,7 @@ namespace ClinicaMontefiori
             cn.Open();
             try
             {
-                SqlCommand cmd = new SqlCommand("generar_id_Citas", cn);
+                SqlCommand cmd = new SqlCommand("generar_id_Triaje", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 secuencia = (int)cmd.ExecuteScalar();
@@ -297,7 +301,7 @@ namespace ClinicaMontefiori
                 cn.Close();
             }
 
-            txtCodigo.Text = secuencia.ToString();
+            txtIdCodigo.Text = secuencia.ToString();
         }
         void registrarEmpleado()
         {
@@ -310,17 +314,17 @@ namespace ClinicaMontefiori
             try
             {
                 //Definimos el SqlCommand, le asignamos la transacción y definimos el CommandType
-                SqlCommand cmd = new SqlCommand("add_Citas", cn, trx);
+                SqlCommand cmd = new SqlCommand("add_Triaje", cn, trx);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Agregamos los parámetros
-                cmd.Parameters.AddWithValue("@id", txtCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_recepcionista", txtRecepcionista.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtCliente.Text);
-                cmd.Parameters.AddWithValue("@id_doctor", txtDoctor.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Text);
-                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Text);
-                cmd.Parameters.AddWithValue("@duracion", txtDuracion.Text);
+                cmd.Parameters.AddWithValue("@id", txtIdCodigo.Text);
+                cmd.Parameters.AddWithValue("@id_cliente", txtIdCliente.Text);
+                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Text);
+                cmd.Parameters.AddWithValue("@temperatura", txtTemperatura.Text);
+                cmd.Parameters.AddWithValue("@peso", txtPeso.Text);
+                cmd.Parameters.AddWithValue("@presion_arterial", txtPresionarterial.Text);
+                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", txtFrecuenciaCardiaca.Text);
 
 
                 //Ejecutamos el SqlCommand
@@ -339,7 +343,7 @@ namespace ClinicaMontefiori
                 cn.Close();
             }
             //Mostramos la lista de clientes en el DataGridView
-            dgvCitas.DataSource = ListarCita();
+            dgvTriaje.DataSource = ListarTriaje();
 
             //Evaluamos el resultado
             if (resultado >= 1)
@@ -370,7 +374,7 @@ namespace ClinicaMontefiori
 
                 //Definimos el SqlCommand, le asignamos la transacción y definimos el CommandType
 
-                SqlCommand cmd = new SqlCommand("update_Citas", cn, trx);
+                SqlCommand cmd = new SqlCommand("update_Triaje", cn, trx);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -379,13 +383,13 @@ namespace ClinicaMontefiori
                 //Agregamos los parámetros
 
 
-                cmd.Parameters.AddWithValue("@id", txtCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_recepcionista", txtRecepcionista.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtCliente.Text);
-                cmd.Parameters.AddWithValue("@id_doctor", txtDoctor.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Text);
-                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Text);
-                cmd.Parameters.AddWithValue("@duracion", txtDuracion.Text);
+                cmd.Parameters.AddWithValue("@id", txtIdCodigo.Text);
+                cmd.Parameters.AddWithValue("@id_cliente", txtIdCliente.Text);
+                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Text);
+                cmd.Parameters.AddWithValue("@temperatura", txtTemperatura.Text);
+                cmd.Parameters.AddWithValue("@peso", txtPeso.Text);
+                cmd.Parameters.AddWithValue("@presion_arterial", txtPresionarterial.Text);
+                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", txtFrecuenciaCardiaca.Text);
 
 
                 //Ejecutamos el SqlCommand
@@ -420,7 +424,7 @@ namespace ClinicaMontefiori
 
             //Mostramos la lista de clientes en el DataGridView
 
-            dgvCitas.DataSource = ListarCita();
+            dgvTriaje.DataSource = ListarTriaje();
 
 
 
@@ -442,3 +446,4 @@ namespace ClinicaMontefiori
 
     }
 }
+

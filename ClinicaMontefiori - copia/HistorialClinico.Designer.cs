@@ -65,11 +65,11 @@ namespace ClinicaMontefiori
             // 
             this.dataTableHistorial.AllowUserToAddRows = false;
             this.dataTableHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTableHistorial.Location = new System.Drawing.Point(12, 241);
+            this.dataTableHistorial.Location = new System.Drawing.Point(72, 241);
             this.dataTableHistorial.Name = "dataTableHistorial";
             this.dataTableHistorial.ReadOnly = true;
             this.dataTableHistorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataTableHistorial.Size = new System.Drawing.Size(776, 197);
+            this.dataTableHistorial.Size = new System.Drawing.Size(660, 197);
             this.dataTableHistorial.TabIndex = 21;
             // 
             // textBox1

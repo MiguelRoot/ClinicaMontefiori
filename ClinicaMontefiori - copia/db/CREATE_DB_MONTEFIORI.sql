@@ -205,56 +205,11 @@ AS
 GO
 
 
--- PROCEDURE LISTA TRIAJE
+-- PROCEDURE LISTA TRIAjE
 CREATE PROCEDURE triajeList
 AS
 SELECT * FROM tb_triaje
 GO
-CREATE PROCEDURE generar_id_Triaje
-AS
-SELECT MAX(id)+1 as Secuenciatriaje from tb_triaje
-GO
-
-CREATE PROCEDURE add_Triaje
-@id int,
-@id_cliente int,
-@fecha date,
-@temperatura DECIMAL(4, 1),
-@peso int,
-@presion_arterial varchar (10),
-@frecuencia_cardiaca int
-AS
-INSERT into tb_triaje
-Values(@id,@id_cliente,@fecha,@temperatura,@peso,@presion_arterial,@frecuencia_cardiaca);
-GO
-
-CREATE PROCEDURE update_Triaje
-  @id int,
-  @id_cliente int,
-  @fecha date,
-  @temperatura decimal(4,1),
-  @peso int,
-  @presion_arterial varchar(10),
-  @frecuencia_cardiaca int
-AS
-BEGIN
-	UPDATE tb_triaje
-		SET id_cliente = @id_cliente,
-		fecha= @fecha,
-		temperatura= @temperatura,
-		peso= @peso,
-		presion_arterial= @presion_arterial,
-		frecuencia_cardiaca=@frecuencia_cardiaca
-	WHERE id = @id
-END
-GO
-
-create procedure usp_deleteTriaje
-@id int
-AS
-Delete tb_triaje
-where id=@id;
-go
 
 
 -- PROCEDURE LISTA DE CITAS
@@ -262,52 +217,6 @@ CREATE PROCEDURE clitasList
 AS
 SELECT * FROM tb_citas
 GO
-CREATE PROCEDURE generar_id_Citas
-AS
-SELECT MAX(id)+1 as SecuenciaCitas from tb_citas
-
-GO
-
-CREATE PROCEDURE add_Citas
-@id int,
-@id_recepcionista int,
-@id_cliente int,
-@id_doctor int,
-@fecha date,
-@fecha_hora datetime,
-@duracion int
-AS
-INSERT INTO tb_citas
-Values(@id,@id_recepcionista,@id_cliente,@id_doctor,@fecha,@fecha_hora,@duracion);
-
-GO
-
-CREATE PROCEDURE update_Citas
-@id int,
-@id_recepcionista int,
-@id_cliente int,
-@id_doctor int,
-@fecha date,
-@fecha_hora datetime,
-@duracion int
-AS
-BEGIN
-UPDATE tb_citas
-	SET id_recepcionista=@id_recepcionista,
-		id_cliente=@id_cliente,
-		id_doctor=@id_doctor,
-		fecha=@fecha,
-		fecha_hora=@fecha_hora,
-		duracion=@duracion
-	WHERE id=@id
-END
-GO
-create procedure usp_deleteCitas
-@id int
-AS
-Delete tb_citas
-where id=@id;
-go
 
 
 -- PROCEDURE LISTA DE HISTORIAL CLINICO
@@ -360,9 +269,9 @@ END
 GO
 
 CREATE PROCEDURE datele_doctor
-@id varchar(3)
+@id varchar(3);
 AS
- DELETE add_doctor WHERE id=@id
+ DELETE add_doctor WHERE id=@id;
 
 GO
 
