@@ -23,14 +23,6 @@ namespace ClinicaMontefiori
             InitializeComponent();
         }
 
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.AddWithValue("@id", textId.Text);
-        //        cmd.Parameters.AddWithValue("@nombre", textNombre.Text);
-        //        cmd.Parameters.AddWithValue("@apellido_paterno", textPaterno.Text);
-        //        cmd.Parameters.AddWithValue("@apellido_materno", textMaterno.Text);
-        //        cmd.Parameters.AddWithValue("@dni", textDni.Text);
-        //        cmd.Parameters.AddWithValue("@especialidad", textEspecialidad.Text);
-
         void formLimpiar()
         {
             textNombre.Text = "";
@@ -303,7 +295,7 @@ namespace ClinicaMontefiori
 
                 if (resultado >= 1)
                 {
-                    MessageBox.Show(resultado.ToString() + " proyecto eliminado",
+                    MessageBox.Show(resultado.ToString() + " Doctor eliminado",
                           "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

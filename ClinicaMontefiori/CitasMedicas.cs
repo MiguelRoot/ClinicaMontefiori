@@ -28,11 +28,15 @@ namespace ClinicaMontefiori
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+            //kk
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
+          //koijuijki
             dataTableCitaMedica.DataSource = cargarTable("clienteList");
         }
+
+       
     }
 }

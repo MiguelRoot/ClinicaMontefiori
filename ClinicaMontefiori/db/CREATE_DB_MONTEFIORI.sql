@@ -45,7 +45,7 @@ CREATE TABLE tb_clientes (
   sexo CHAR(1),
   fecha_nacimiento Date,
   telefono VARCHAR(20),
-  numero_movel VARCHAR(13),
+  numero_movil VARCHAR(13),
   correo VARCHAR(50)
 );
 
@@ -107,8 +107,6 @@ CREATE TABLE tb_recepcionista (
   numero_movil VARCHAR(20)
 );
 
-
-
 -- Agregar relaciones de clave foránea a tb_citas
 ALTER TABLE tb_citas
 ADD FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id),
@@ -142,10 +140,68 @@ SELECT * FROM tb_clientes;
 
 GO
 
--- PROCEDURE LISTA CLIENTES
+-- PROCEDURE LISTA CLIENTES (PACIENTES)
 CREATE PROCEDURE clienteList
 AS
 SELECT * FROM tb_clientes
+GO
+
+CREATE PROCEDURE generar_id_cliente
+AS
+SELECT MAX(id + 1) FROM tb_clientes
+GO
+
+CREATE PROCEDURE add_cliente
+  @id int,
+  @id_recepcionista int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @sexo VARCHAR(1),
+  @fecha_nacimiento DATE,
+  @telefono VARCHAR(20),
+  @numero_movil VARCHAR(13),
+  @correo VARCHAR(50)
+AS
+INSERT INTO tb_clientes VALUES(@id,@id_recepcionista, @nombre, @apellido_paterno, @apellido_materno, @dni, @sexo, @fecha_nacimiento, @telefono, @numero_movil, @correo);
+GO
+
+CREATE PROCEDURE update_cliente
+  @id int,
+  @id_recepcionista int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @sexo VARCHAR(1),
+  @fecha_nacimiento DATE,
+  @telefono VARCHAR(20),
+  @numero_movil VARCHAR(13),
+  @correo VARCHAR(50)
+AS
+BEGIN
+	UPDATE tb_clientes
+		SET id_recepcionista = @id_recepcionista,
+		nombre = @nombre,
+		apellido_paterno = @apellido_paterno,
+		apellido_materno = @apellido_materno,
+		dni = @dni,
+		sexo = @sexo,
+		fecha_nacimiento = @fecha_nacimiento,
+		telefono = @telefono,
+		numero_movil = @numero_movil,
+		correo = @correo
+	WHERE id = @id
+END
+
+GO
+
+CREATE PROCEDURE datele_cliente
+@id varchar(3)
+AS
+ DELETE tb_clientes WHERE id=@id
+
 GO
 
 
@@ -213,9 +269,9 @@ END
 GO
 
 CREATE PROCEDURE datele_doctor
-@id int
+@id varchar(3);
 AS
- DELETE tb_doctor WHERE id=@id;
+ DELETE add_doctor WHERE id=@id;
 
 GO
 
@@ -224,6 +280,48 @@ GO
 CREATE PROCEDURE recepcionistaList
 AS
 SELECT * FROM tb_recepcionista
+GO
+
+CREATE PROCEDURE generar_id_recepcionista
+AS
+SELECT MAX(id + 1) FROM tb_recepcionista
+GO
+
+CREATE PROCEDURE add_recepcionista
+  @id int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @numeromovil INT
+AS
+INSERT INTO tb_recepcionista VALUES(@id, @nombre, @apellido_paterno, @apellido_materno, @dni, @numeromovil);
+GO
+
+CREATE PROCEDURE update_recepcionista
+  @id int,
+  @nombre VARCHAR(50),
+  @apellido_paterno VARCHAR(50),
+  @apellido_materno VARCHAR(50),
+  @dni INT,
+  @numeromovil INT
+AS
+BEGIN
+	UPDATE tb_recepcionista
+		SET nombre = @nombre,
+		apellido_paterno = @apellido_paterno,
+		apellido_materno = @apellido_materno,
+		dni = @dni,
+		numero_movil = @numeromovil
+	WHERE id = @id
+END
+
+GO
+
+CREATE PROCEDURE datele_recepcionista
+@id varchar(3)
+AS
+ DELETE add_recepcionista WHERE id=@id
 
 GO
 
@@ -247,7 +345,7 @@ INSERT INTO tb_recepcionista (id, nombre, apellido_paterno, apellido_materno, dn
 
 go
 
-INSERT INTO tb_clientes (id, id_recepcionista, nombre, apellido_paterno, apellido_materno, dni, sexo, fecha_nacimiento, telefono, numero_movel, correo) VALUES 
+INSERT INTO tb_clientes (id, id_recepcionista, nombre, apellido_paterno, apellido_materno, dni, sexo, fecha_nacimiento, telefono, numero_movil, correo) VALUES 
 (1, 1, 'María', 'García', 'Pérez', 12345678, 'F', '1990-05-10', '123456789', '1234567890123', 'maria.garcia@example.com'),
 (2, 1, 'Juan', 'Rodríguez', 'Martínez', 23456789, 'M', '1985-10-15', '234567890', '2345678901234', 'juan.rodriguez@example.com'),
 (3, 2, 'Laura', 'Fernández', 'González', 34567890, 'F', '1995-03-20', '345678901', '3456789012345', 'laura.fernandez@example.com'),
