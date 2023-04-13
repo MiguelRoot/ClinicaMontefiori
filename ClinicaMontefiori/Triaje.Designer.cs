@@ -60,7 +60,7 @@ namespace ClinicaMontefiori
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(751, 31);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Mantenimiento triaje";
+            this.label1.Text = "Consulta triaje";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtIdCodigo
@@ -267,7 +267,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.txtIdCodigo);
             this.Controls.Add(this.label1);
             this.Name = "Triaje";
-            this.Text = "Form5";
+            this.Text = "Consulta triaje";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTriaje)).EndInit();
             this.ResumeLayout(false);

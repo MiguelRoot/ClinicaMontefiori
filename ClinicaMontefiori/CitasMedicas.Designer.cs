@@ -60,7 +60,7 @@ namespace ClinicaMontefiori
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(751, 31);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mantenimiento citas medicas";
+            this.label1.Text = "Consulta citas medicas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtCodigo
@@ -268,7 +268,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
             this.Name = "CitasMedicas";
-            this.Text = "Form4";
+            this.Text = "Consulta citas medicas";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).EndInit();
             this.ResumeLayout(false);

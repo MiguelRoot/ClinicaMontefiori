@@ -328,7 +328,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.text_nombre);
             this.Controls.Add(this.label1);
             this.Name = "Pacientes";
-            this.Text = "Pacientes";
+            this.Text = "Mantenimiento pacientes";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableCliente)).EndInit();
             this.ResumeLayout(false);

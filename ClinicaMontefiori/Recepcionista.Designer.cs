@@ -246,7 +246,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
             this.Name = "Recepcionista";
-            this.Text = "Form3";
+            this.Text = "Mantenimiento recepcionista";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecepcionista)).EndInit();
             this.ResumeLayout(false);

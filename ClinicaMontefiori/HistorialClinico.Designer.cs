@@ -58,7 +58,7 @@ namespace ClinicaMontefiori
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(751, 31);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Mantenimiento historial clínico";
+            this.label1.Text = "Consulta historial clínico";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataTableHistorial
@@ -248,7 +248,7 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.dataTableHistorial);
             this.Controls.Add(this.label1);
             this.Name = "HistorialClinico";
-            this.Text = "Form6";
+            this.Text = "Consulta historial clínico";
             this.Load += new System.EventHandler(this.Form6_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableHistorial)).EndInit();
             this.ResumeLayout(false);
