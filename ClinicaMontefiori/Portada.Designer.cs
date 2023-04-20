@@ -29,6 +29,7 @@ namespace ClinicaMontefiori
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Portada));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,7 @@ namespace ClinicaMontefiori
             this.consultasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1001, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,21 +67,21 @@ namespace ClinicaMontefiori
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Paciente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // doctorToolStripMenuItem
             // 
             this.doctorToolStripMenuItem.Name = "doctorToolStripMenuItem";
-            this.doctorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.doctorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.doctorToolStripMenuItem.Text = "Doctor";
             this.doctorToolStripMenuItem.Click += new System.EventHandler(this.doctorToolStripMenuItem_Click);
             // 
             // recepcionistaToolStripMenuItem
             // 
             this.recepcionistaToolStripMenuItem.Name = "recepcionistaToolStripMenuItem";
-            this.recepcionistaToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.recepcionistaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recepcionistaToolStripMenuItem.Text = "Recepcionista";
             this.recepcionistaToolStripMenuItem.Click += new System.EventHandler(this.recepcionistaToolStripMenuItem_Click);
             // 
@@ -119,13 +120,16 @@ namespace ClinicaMontefiori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 580);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1001, 655);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Portada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clinica Montefiori";
+            this.Load += new System.EventHandler(this.Portada_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

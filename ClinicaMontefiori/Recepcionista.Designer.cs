@@ -210,6 +210,7 @@ namespace ClinicaMontefiori
             // dgvRecepcionista
             // 
             this.dgvRecepcionista.AllowUserToAddRows = false;
+            this.dgvRecepcionista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRecepcionista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecepcionista.Location = new System.Drawing.Point(12, 228);
             this.dgvRecepcionista.Name = "dgvRecepcionista";

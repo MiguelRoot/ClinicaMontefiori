@@ -211,8 +211,18 @@ namespace ClinicaMontefiori
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
-                //Revertimos la transacción en la base de datos
+
+                string message = "";
+                if (ex.Number == 8114)
+                {
+                    message = "Valores del formulario invalidos, por favor revise los campos";
+                }
+                else
+                {
+                    message = ex.Message;
+                }
+
+                MessageBox.Show(message);
                 trx.Rollback();
             }
             finally
@@ -220,12 +230,16 @@ namespace ClinicaMontefiori
                 cn.Close();
             }
             //Mostramos la lista de clientes en el DataGridView
-            dgvRecepcionista.DataSource = ListarRecepcionista();
 
+            dgvRecepcionista.DataSource = ListarRecepcionista();
             //Evaluamos el resultado
             if (resultado >= 1)
+            {
+
                 MessageBox.Show("Empleado Agregado",
-                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             else
                 MessageBox.Show("Registro no realizado",
                                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

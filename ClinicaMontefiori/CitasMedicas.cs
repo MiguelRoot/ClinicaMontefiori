@@ -37,9 +37,9 @@ namespace ClinicaMontefiori
             //Cuando valor = false -->Deshabilitamos las cajas de texto, los combo box y los datetimepicker
             //Cuando valor = true  -->Habilitamos las cajas de texto, los combo box y los datetimepicker
             txtCodigo.Enabled = valor;
-            txtCliente.Enabled = valor;
-            txtRecepcionista.Enabled = valor;
-            txtDoctor.Enabled = valor;
+            boxPacientes.Enabled = valor;
+            boxRecepcionistas.Enabled = valor;
+            boxDoctor.Enabled = valor;
             dtpfecha.Enabled = valor;
             dtphora.Enabled = valor;
            txtDuracion.Enabled = valor;
@@ -61,9 +61,9 @@ namespace ClinicaMontefiori
             //Limpiamos las cajas de texto e inicializamos los combo box y datetimepicker 
 
             txtCodigo.Text = "";
-            txtCliente.Text = "";
-            txtRecepcionista.Text = "";
-            txtDoctor.Text = "";
+            boxPacientes.SelectedIndex = 0;
+            boxRecepcionistas.SelectedIndex = 0;
+            boxDoctor.SelectedIndex = 0;
             dtpfecha.Value = DateTime.Today;
             dtphora.Value = DateTime.Today;
             txtDuracion.Text = "";
@@ -71,17 +71,50 @@ namespace ClinicaMontefiori
          private void Form4_Load(object sender, EventArgs e)
         {
             dgvCitas.DataSource = ListarCita();
+            dgvCitas.Columns["id_cliente"].Visible = false;
+            dgvCitas.Columns["id_doctor"].Visible = false;
+            dgvCitas.Columns["id_recepcionista"].Visible = false;
+
+            boxPacientes.DataSource = getProcedureName("Lista_paciente_cbo");
+            boxPacientes.DisplayMember = "nombre";
+            boxPacientes.ValueMember = "id";
+
+            boxRecepcionistas.DataSource = getProcedureName("Lista_recepcionista_cbo");
+            boxRecepcionistas.DisplayMember = "nombre";
+            boxRecepcionistas.ValueMember = "id";
+
+            boxDoctor.DataSource = getProcedureName("Lista_doctor_cbo");
+            boxDoctor.DisplayMember = "nombre";
+            boxDoctor.ValueMember = "id";
+
         }
+
+        DataTable getProcedureName(string procedureName)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(procedureName, cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+
         void navegarEmpleados()
         {
             if (dgvCitas.CurrentRow != null)
             {
                 txtCodigo.Text = dgvCitas.CurrentRow.Cells[0].Value.ToString();
-                txtCliente.Text = dgvCitas.CurrentRow.Cells[1].Value.ToString();
-                txtRecepcionista.Text = dgvCitas.CurrentRow.Cells[2].Value.ToString();
-                txtDoctor.Text = dgvCitas.CurrentRow.Cells[3].Value.ToString();
+                //txtCliente.Text = dgvCitas.CurrentRow.Cells[1].Value.ToString();
+                //txtRecepcionista.Text = dgvCitas.CurrentRow.Cells[2].Value.ToString();
+                //txtDoctor.Text = dgvCitas.CurrentRow.Cells[3].Value.ToString();
+
                 dtpfecha.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells[4].Value.ToString());
                 dtphora.Value = Convert.ToDateTime(dgvCitas.CurrentRow.Cells[5].Value.ToString());
+
+                boxPacientes.SelectedValue = int.Parse(dgvCitas.CurrentRow.Cells["id_cliente"].Value.ToString());
+                boxDoctor.SelectedValue = int.Parse(dgvCitas.CurrentRow.Cells["id_doctor"].Value.ToString());
+                boxRecepcionistas.SelectedValue = int.Parse(dgvCitas.CurrentRow.Cells["id_recepcionista"].Value.ToString());
+
                 txtDuracion.Text = dgvCitas.CurrentRow.Cells[6].Value.ToString();
 
             }
@@ -315,11 +348,11 @@ namespace ClinicaMontefiori
 
                 //Agregamos los parámetros
                 cmd.Parameters.AddWithValue("@id", txtCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_recepcionista", txtRecepcionista.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtCliente.Text);
-                cmd.Parameters.AddWithValue("@id_doctor", txtDoctor.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Text);
-                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Text);
+                cmd.Parameters.AddWithValue("@id_recepcionista", boxRecepcionistas.SelectedValue);
+                cmd.Parameters.AddWithValue("@id_cliente", boxPacientes.SelectedValue);
+                cmd.Parameters.AddWithValue("@id_doctor", boxDoctor.SelectedValue);
+                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Value);
+                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Value);
                 cmd.Parameters.AddWithValue("@duracion", txtDuracion.Text);
 
 
@@ -380,11 +413,11 @@ namespace ClinicaMontefiori
 
 
                 cmd.Parameters.AddWithValue("@id", txtCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_recepcionista", txtRecepcionista.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtCliente.Text);
-                cmd.Parameters.AddWithValue("@id_doctor", txtDoctor.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Text);
-                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Text);
+                cmd.Parameters.AddWithValue("@id_recepcionista", boxRecepcionistas.SelectedValue);
+                cmd.Parameters.AddWithValue("@id_cliente", boxPacientes.SelectedValue);
+                cmd.Parameters.AddWithValue("@id_doctor", boxDoctor.SelectedValue);
+                cmd.Parameters.AddWithValue("@fecha", dtpfecha.Value);
+                cmd.Parameters.AddWithValue("@fecha_hora", dtphora.Value);
                 cmd.Parameters.AddWithValue("@duracion", txtDuracion.Text);
 
 
@@ -440,5 +473,27 @@ namespace ClinicaMontefiori
 
         }
 
+        private void dgvCitas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvCitas.Columns[e.ColumnIndex].Name == "fecha_hora")
+            {
+                if (e.Value != null)
+                {
+                    DateTime fecha = (DateTime)e.Value;
+                    e.Value = fecha.ToString("HH:mm");
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtphora_MouseDown(object sender, MouseEventArgs e)
+        {
+            dtphora.CustomFormat = "HH:mm";
+        }
     }
 }

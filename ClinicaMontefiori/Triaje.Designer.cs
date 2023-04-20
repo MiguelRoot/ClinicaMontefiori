@@ -48,8 +48,8 @@ namespace ClinicaMontefiori
             this.txtPresionarterial = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.dgvTriaje = new System.Windows.Forms.DataGridView();
+            this.boxPacientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTriaje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,21 +73,21 @@ namespace ClinicaMontefiori
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(87, 125);
+            this.dtpFecha.Location = new System.Drawing.Point(87, 123);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(122, 20);
             this.dtpFecha.TabIndex = 5;
             // 
             // txtTemperatura
             // 
-            this.txtTemperatura.Location = new System.Drawing.Point(315, 125);
+            this.txtTemperatura.Location = new System.Drawing.Point(308, 123);
             this.txtTemperatura.Name = "txtTemperatura";
             this.txtTemperatura.Size = new System.Drawing.Size(122, 20);
             this.txtTemperatura.TabIndex = 4;
             // 
             // txtFrecuenciaCardiaca
             // 
-            this.txtFrecuenciaCardiaca.Location = new System.Drawing.Point(352, 160);
+            this.txtFrecuenciaCardiaca.Location = new System.Drawing.Point(345, 160);
             this.txtFrecuenciaCardiaca.Name = "txtFrecuenciaCardiaca";
             this.txtFrecuenciaCardiaca.Size = new System.Drawing.Size(122, 20);
             this.txtFrecuenciaCardiaca.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace ClinicaMontefiori
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 129);
+            this.label3.Location = new System.Drawing.Point(27, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 8;
@@ -113,7 +113,7 @@ namespace ClinicaMontefiori
             // ss
             // 
             this.ss.AutoSize = true;
-            this.ss.Location = new System.Drawing.Point(242, 129);
+            this.ss.Location = new System.Drawing.Point(235, 127);
             this.ss.Name = "ss";
             this.ss.Size = new System.Drawing.Size(67, 13);
             this.ss.TabIndex = 8;
@@ -131,7 +131,7 @@ namespace ClinicaMontefiori
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(242, 163);
+            this.label6.Location = new System.Drawing.Point(235, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 13);
             this.label6.TabIndex = 8;
@@ -139,7 +139,7 @@ namespace ClinicaMontefiori
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(412, 87);
+            this.btnEditar.Location = new System.Drawing.Point(488, 86);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(99, 23);
             this.btnEditar.TabIndex = 15;
@@ -149,7 +149,7 @@ namespace ClinicaMontefiori
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(526, 84);
+            this.btnCancelar.Location = new System.Drawing.Point(602, 86);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 23);
             this.btnCancelar.TabIndex = 16;
@@ -159,7 +159,7 @@ namespace ClinicaMontefiori
             // 
             // btnCodigo
             // 
-            this.btnCodigo.Location = new System.Drawing.Point(307, 87);
+            this.btnCodigo.Location = new System.Drawing.Point(383, 86);
             this.btnCodigo.Name = "btnCodigo";
             this.btnCodigo.Size = new System.Drawing.Size(99, 23);
             this.btnCodigo.TabIndex = 17;
@@ -190,7 +190,7 @@ namespace ClinicaMontefiori
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(443, 131);
+            this.label7.Location = new System.Drawing.Point(443, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 21;
@@ -198,14 +198,14 @@ namespace ClinicaMontefiori
             // 
             // txtPresionarterial
             // 
-            this.txtPresionarterial.Location = new System.Drawing.Point(526, 128);
+            this.txtPresionarterial.Location = new System.Drawing.Point(526, 124);
             this.txtPresionarterial.Name = "txtPresionarterial";
             this.txtPresionarterial.Size = new System.Drawing.Size(100, 20);
             this.txtPresionarterial.TabIndex = 22;
             // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(87, 163);
+            this.txtPeso.Location = new System.Drawing.Point(87, 159);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(122, 20);
             this.txtPeso.TabIndex = 23;
@@ -213,40 +213,41 @@ namespace ClinicaMontefiori
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(160, 92);
+            this.label4.Location = new System.Drawing.Point(166, 91);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 24;
-            this.label4.Text = "Id_Cliente";
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(220, 90);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(54, 20);
-            this.txtIdCliente.TabIndex = 25;
+            this.label4.Text = "Clientes";
             // 
             // dgvTriaje
             // 
             this.dgvTriaje.AllowUserToAddRows = false;
             this.dgvTriaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTriaje.Location = new System.Drawing.Point(31, 222);
+            this.dgvTriaje.Location = new System.Drawing.Point(12, 210);
             this.dgvTriaje.Name = "dgvTriaje";
             this.dgvTriaje.ReadOnly = true;
             this.dgvTriaje.RowHeadersWidth = 56;
             this.dgvTriaje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTriaje.Size = new System.Drawing.Size(728, 216);
+            this.dgvTriaje.Size = new System.Drawing.Size(776, 228);
             this.dgvTriaje.TabIndex = 40;
             this.dgvTriaje.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTriaje_CellClick);
             this.dgvTriaje.SelectionChanged += new System.EventHandler(this.dgvTriaje_SelectionChanged);
+            // 
+            // boxPacientes
+            // 
+            this.boxPacientes.FormattingEnabled = true;
+            this.boxPacientes.Location = new System.Drawing.Point(226, 87);
+            this.boxPacientes.Name = "boxPacientes";
+            this.boxPacientes.Size = new System.Drawing.Size(121, 21);
+            this.boxPacientes.TabIndex = 41;
             // 
             // Triaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.boxPacientes);
             this.Controls.Add(this.dgvTriaje);
-            this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.txtPresionarterial);
@@ -296,7 +297,7 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.TextBox txtPresionarterial;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.DataGridView dgvTriaje;
+        private System.Windows.Forms.ComboBox boxPacientes;
     }
 }

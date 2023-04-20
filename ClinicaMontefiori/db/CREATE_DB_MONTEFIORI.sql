@@ -210,6 +210,8 @@ CREATE PROCEDURE triajeList
 AS
 SELECT * FROM tb_triaje
 GO
+
+
 CREATE PROCEDURE generar_id_Triaje
 AS
 SELECT MAX(id)+1 as Secuenciatriaje from tb_triaje
@@ -260,8 +262,13 @@ go
 -- PROCEDURE LISTA DE CITAS
 CREATE PROCEDURE clitasList
 AS
-SELECT * FROM tb_citas
+SELECT citas.id, citas.id_recepcionista, citas.id_cliente, citas.id_doctor, citas.fecha, citas.fecha_hora, citas.duracion, recep.nombre as recepcionista, clientes.nombre as cliente, doctor.nombre as doctor 
+	FROM tb_citas citas
+INNER JOIN tb_recepcionista recep ON citas.id_recepcionista = recep.id
+INNER JOIN tb_clientes clientes ON citas.id_cliente = clientes.id
+INNER JOIN tb_doctor doctor ON citas.id_doctor = doctor.id
 GO
+
 CREATE PROCEDURE generar_id_Citas
 AS
 SELECT MAX(id)+1 as SecuenciaCitas from tb_citas
@@ -316,6 +323,73 @@ AS
 SELECT * FROM tb_historial_clinico
 GO
 
+CREATE PROCEDURE Lista_doctor_cbo
+As
+SELECT Id, nombre from tb_doctor
+GO
+
+CREATE PROCEDURE Lista_recepcionista_cbo
+As
+SELECT Id, nombre from tb_recepcionista
+GO
+
+CREATE PROCEDURE Lista_paciente_cbo
+As
+SELECT Id, nombre from tb_clientes
+GO
+
+CREATE PROCEDURE generar_id_historialClinico
+AS
+SELECT MAX(id + 1) FROM tb_historial_clinico
+GO
+
+CREATE PROCEDURE add_historialClinico
+  @id INT,
+  @id_cliente INT,
+  @id_doctor INT,
+  @fecha_hora DATETIME,
+  @diagnostico VARCHAR(100),
+  @tratamiento VARCHAR(100)
+AS
+INSERT INTO tb_historial_clinico VALUES(@id, @id_cliente, @id_doctor, @fecha_hora, @diagnostico, @tratamiento);
+GO
+
+
+CREATE PROCEDURE update_historialClinico
+  @id INT,
+  @id_cliente INT,
+  @id_doctor INT,
+  @fecha_hora DATETIME,
+  @diagnostico VARCHAR(100),
+  @tratamiento VARCHAR(100)
+AS
+BEGIN
+	UPDATE tb_historial_clinico
+		SET id_cliente = @id_cliente,
+		id_doctor = @id_doctor,
+		fecha_hora = @fecha_hora,
+		diagnostico = @diagnostico,
+		tratamiento = @tratamiento
+	WHERE id = @id
+END
+
+GO
+
+
+Create  procedure usp_obtenerSecuenciaHistorial
+As
+select max(id) + 1 as secuenciaEmpleado from  tb_historial_clinico  ;
+
+GO
+
+
+CREATE PROCEDURE delete_historialClinico
+@id varchar(3)
+AS
+ DELETE tb_historial_clinico WHERE id=@id
+
+GO
+
 
 -- PROCEDURE LISTA DE DOCTOR
 CREATE PROCEDURE doctorList
@@ -360,9 +434,9 @@ END
 GO
 
 CREATE PROCEDURE datele_doctor
-@id varchar(3)
+@id int
 AS
- DELETE add_doctor WHERE id=@id
+ DELETE tb_doctor WHERE id=@id
 
 GO
 
@@ -412,7 +486,7 @@ GO
 CREATE PROCEDURE datele_recepcionista
 @id varchar(3)
 AS
- DELETE add_recepcionista WHERE id=@id
+ DELETE tb_recepcionista WHERE id=@id
 
 GO
 

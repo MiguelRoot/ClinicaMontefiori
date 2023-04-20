@@ -33,19 +33,31 @@ namespace ClinicaMontefiori
         void formLimpiar()
         {
             textBox1.Text = "";
-            cbo1.SelectedIndex = 0;
-            textBox4.Text = "";
+            cboxDoctor.SelectedIndex = 0;
+            //textBox4.Text = "";
             dateTimePicker1.Value = DateTime.Today;
+        }
+
+
+        void formInitDefault()
+        {
+            textBox3.Text = "";
+            textBox1.Text = "";
+            textBox4.Text = "";
+            cboxPaciente.SelectedIndex = 0;
+            cboxDoctor.SelectedIndex = 0;
         }
 
         void habilitarCajasTexto(Boolean valor)
         {
             
             textBox1.Enabled = valor;
-            cbo2.Enabled = valor;
-            cbo1.Enabled = valor;
+            cboxPaciente.Enabled = valor;
+            cboxDoctor.Enabled = valor;
             textBox4.Enabled = valor;
             dataTableHistorial.Enabled = valor;
+            textBox3.Enabled = valor;
+            dateTimePicker1.Enabled = valor;
         }
 
         void habilitarBotones(Boolean valor)
@@ -76,11 +88,11 @@ namespace ClinicaMontefiori
         private void btnCodigo_Click(object sender, EventArgs e)
         {
 
-
             flagAccion = "Nuevo";
 
+            formInitDefault();
           
-            formLimpiar();
+            //formLimpiar();
 
           
             habilitarCajasTexto(true);
@@ -108,14 +120,14 @@ namespace ClinicaMontefiori
 
         {
             dataTableHistorial.DataSource = cargarTable("historialClinicoList");
-            cbo1.DataSource = listarDoctores();
-            cbo1.DisplayMember = "nombre";
-            cbo1.ValueMember = "id";
+            cboxDoctor.DataSource = listarDoctores();
+            cboxDoctor.DisplayMember = "nombre";
+            cboxDoctor.ValueMember = "id";
 
 
-            cbo2.DataSource = listarPacientes();
-            cbo2.DisplayMember = "nombre";
-            cbo2.ValueMember = "id";
+            cboxPaciente.DataSource = listarPacientes();
+            cboxPaciente.DisplayMember = "nombre";
+            cboxPaciente.ValueMember = "id";
 
 
         }
@@ -145,8 +157,10 @@ namespace ClinicaMontefiori
                 dateTimePicker1.Value = Convert.ToDateTime(dataTableHistorial.CurrentRow.Cells[3].Value.ToString());
                 textBox3.Text = dataTableHistorial.CurrentRow.Cells[4].Value.ToString();
                 textBox4.Text = dataTableHistorial.CurrentRow.Cells[5].Value.ToString();
-                cbo1.SelectedIndex = cbo1.FindStringExact(dataTableHistorial.CurrentRow.Cells[6].Value.ToString());
-                cbo2.SelectedIndex = cbo2.FindStringExact(dataTableHistorial.CurrentRow.Cells[6].Value.ToString());
+                //cbo1.SelectedIndex = cbo1.FindStringExact(dataTableHistorial.CurrentRow.Cells[6].Value.ToString());
+                //cboxPaciente.SelectedIndex = cbo2.FindStringExact(dataTableHistorial.CurrentRow.Cells[7].Value.ToString());
+                cboxDoctor.SelectedValue = int.Parse(dataTableHistorial.CurrentRow.Cells[1].Value.ToString());
+                cboxPaciente.SelectedValue = int.Parse(dataTableHistorial.CurrentRow.Cells[2].Value.ToString());
             }
 
 
@@ -194,13 +208,13 @@ namespace ClinicaMontefiori
         {
 
             formLimpiar();
+            dataTableHistorial.DataSource = cargarTable("historialClinicoList");
 
-            
             habilitarCajasTexto(false);
 
             habilitarBotones(true);
 
-            navegarHistorial();
+            
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -327,8 +341,8 @@ namespace ClinicaMontefiori
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", textBox1.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", cbo2.SelectedValue.ToString());
-                cmd.Parameters.AddWithValue("@id_doctor", cbo1.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@id_cliente", cboxPaciente.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@id_doctor", cboxDoctor.SelectedValue.ToString());
                 cmd.Parameters.AddWithValue("@fecha_hora", dateTimePicker1.Text);
                 cmd.Parameters.AddWithValue("@diagnostico", textBox3.Text);
                 cmd.Parameters.AddWithValue("@tratamiento", textBox4.Text);
@@ -392,8 +406,8 @@ namespace ClinicaMontefiori
 
 
                 cmd.Parameters.AddWithValue("@id", textBox1.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", cbo2.SelectedValue.ToString());
-                cmd.Parameters.AddWithValue("@id_doctor", cbo1.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@id_cliente", cboxPaciente.SelectedValue.ToString());
+                cmd.Parameters.AddWithValue("@id_doctor", cboxDoctor.SelectedValue.ToString());
                 cmd.Parameters.AddWithValue("@fecha_hora", dateTimePicker1.Text);
                 cmd.Parameters.AddWithValue("@diagnostico", textBox3.Text);
                 cmd.Parameters.AddWithValue("@tratamiento", textBox4.Text);
@@ -449,6 +463,16 @@ namespace ClinicaMontefiori
 
                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+        }
+
+        private void dataTableHistorial_SelectionChanged(object sender, EventArgs e)
+        {
+            navegarHistorial();
+        }
+
+        private void dataTableHistorial_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            navegarHistorial();
         }
     }
 }

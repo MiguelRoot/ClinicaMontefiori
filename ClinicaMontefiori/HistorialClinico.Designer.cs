@@ -46,8 +46,8 @@ namespace ClinicaMontefiori
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.cbo1 = new System.Windows.Forms.ComboBox();
-            this.cbo2 = new System.Windows.Forms.ComboBox();
+            this.cboxDoctor = new System.Windows.Forms.ComboBox();
+            this.cboxPaciente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,7 @@ namespace ClinicaMontefiori
             // dataTableHistorial
             // 
             this.dataTableHistorial.AllowUserToAddRows = false;
+            this.dataTableHistorial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTableHistorial.Location = new System.Drawing.Point(12, 241);
             this.dataTableHistorial.Name = "dataTableHistorial";
@@ -71,6 +72,8 @@ namespace ClinicaMontefiori
             this.dataTableHistorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataTableHistorial.Size = new System.Drawing.Size(776, 197);
             this.dataTableHistorial.TabIndex = 21;
+            this.dataTableHistorial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableHistorial_CellClick);
+            this.dataTableHistorial.SelectionChanged += new System.EventHandler(this.dataTableHistorial_SelectionChanged);
             // 
             // textBox1
             // 
@@ -107,7 +110,7 @@ namespace ClinicaMontefiori
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(335, 161);
+            this.label3.Location = new System.Drawing.Point(335, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 24;
@@ -190,7 +193,7 @@ namespace ClinicaMontefiori
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(673, 164);
+            this.btnNuevo.Location = new System.Drawing.Point(673, 158);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(99, 23);
             this.btnNuevo.TabIndex = 30;
@@ -207,29 +210,29 @@ namespace ClinicaMontefiori
             this.lblCodigo.TabIndex = 31;
             this.lblCodigo.Text = "Código";
             // 
-            // cbo1
+            // cboxDoctor
             // 
-            this.cbo1.FormattingEnabled = true;
-            this.cbo1.Location = new System.Drawing.Point(301, 119);
-            this.cbo1.Name = "cbo1";
-            this.cbo1.Size = new System.Drawing.Size(121, 21);
-            this.cbo1.TabIndex = 33;
+            this.cboxDoctor.FormattingEnabled = true;
+            this.cboxDoctor.Location = new System.Drawing.Point(301, 119);
+            this.cboxDoctor.Name = "cboxDoctor";
+            this.cboxDoctor.Size = new System.Drawing.Size(121, 21);
+            this.cboxDoctor.TabIndex = 33;
             // 
-            // cbo2
+            // cboxPaciente
             // 
-            this.cbo2.FormattingEnabled = true;
-            this.cbo2.Location = new System.Drawing.Point(100, 119);
-            this.cbo2.Name = "cbo2";
-            this.cbo2.Size = new System.Drawing.Size(121, 21);
-            this.cbo2.TabIndex = 34;
+            this.cboxPaciente.FormattingEnabled = true;
+            this.cboxPaciente.Location = new System.Drawing.Point(100, 119);
+            this.cboxPaciente.Name = "cboxPaciente";
+            this.cboxPaciente.Size = new System.Drawing.Size(121, 21);
+            this.cboxPaciente.TabIndex = 34;
             // 
             // HistorialClinico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cbo2);
-            this.Controls.Add(this.cbo1);
+            this.Controls.Add(this.cboxPaciente);
+            this.Controls.Add(this.cboxDoctor);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNuevo);
@@ -275,7 +278,7 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.ComboBox cbo1;
-        private System.Windows.Forms.ComboBox cbo2;
+        private System.Windows.Forms.ComboBox cboxDoctor;
+        private System.Windows.Forms.ComboBox cboxPaciente;
     }
 }

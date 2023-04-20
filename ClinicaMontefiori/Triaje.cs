@@ -36,7 +36,7 @@ namespace ClinicaMontefiori
             //Cuando valor = false -->Deshabilitamos las cajas de texto, los combo box y los datetimepicker
             //Cuando valor = true  -->Habilitamos las cajas de texto, los combo box y los datetimepicker
             txtIdCodigo.Enabled = valor;
-            txtIdCliente.Enabled = valor;
+            boxPacientes.Enabled = valor;
             dtpFecha.Enabled = valor;
             txtTemperatura.Enabled = valor;
             txtPeso.Enabled = valor;
@@ -60,7 +60,7 @@ namespace ClinicaMontefiori
             //Limpiamos las cajas de texto e inicializamos los combo box y datetimepicker 
 
             txtIdCodigo.Text = "";
-            txtIdCliente.Text = "";
+            boxPacientes.SelectedIndex = 0;
             dtpFecha.Value = DateTime.Today;
             txtTemperatura.Text = "";
             txtPeso.Text = "";
@@ -72,18 +72,36 @@ namespace ClinicaMontefiori
         {
 
             dgvTriaje.DataSource = ListarTriaje();
+
+            boxPacientes.DataSource = listarPacientes();
+            boxPacientes.DisplayMember = "nombre";
+            boxPacientes.ValueMember = "id";
+
         }
+
+        DataTable listarPacientes()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("Lista_paciente_cbo", cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
         void navegarEmpleados()
         {
             if (dgvTriaje.CurrentRow != null)
             {
                 txtIdCodigo.Text = dgvTriaje.CurrentRow.Cells[0].Value.ToString();
-                txtIdCliente.Text = dgvTriaje.CurrentRow.Cells[1].Value.ToString();
+
+                boxPacientes.SelectedValue = int.Parse(dgvTriaje.CurrentRow.Cells[1].Value.ToString());
+                //txtIdCliente.Text = dgvTriaje.CurrentRow.Cells[1].Value.ToString();
+
                 dtpFecha.Value = Convert.ToDateTime(dgvTriaje.CurrentRow.Cells[2].Value.ToString());
                 txtTemperatura.Text = dgvTriaje.CurrentRow.Cells[3].Value.ToString();
                 txtPeso.Text = dgvTriaje.CurrentRow.Cells[4].Value.ToString();
-                txtFrecuenciaCardiaca.Text = dgvTriaje.CurrentRow.Cells[5].Value.ToString();
-                txtPresionarterial.Text = dgvTriaje.CurrentRow.Cells[6].Value.ToString();
+                txtFrecuenciaCardiaca.Text = dgvTriaje.CurrentRow.Cells[6].Value.ToString();
+                txtPresionarterial.Text = dgvTriaje.CurrentRow.Cells[5].Value.ToString();
 
             }
         }
@@ -318,13 +336,13 @@ namespace ClinicaMontefiori
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Agregamos los parámetros
-                cmd.Parameters.AddWithValue("@id", txtIdCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtIdCliente.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Text);
-                cmd.Parameters.AddWithValue("@temperatura", txtTemperatura.Text);
-                cmd.Parameters.AddWithValue("@peso", txtPeso.Text);
+                cmd.Parameters.AddWithValue("@id", int.Parse(txtIdCodigo.Text));
+                cmd.Parameters.AddWithValue("@id_cliente", int.Parse(boxPacientes.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Value);
+                cmd.Parameters.AddWithValue("@temperatura", double.Parse(txtTemperatura.Text));
+                cmd.Parameters.AddWithValue("@peso", int.Parse(txtPeso.Text));
                 cmd.Parameters.AddWithValue("@presion_arterial", txtPresionarterial.Text);
-                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", txtFrecuenciaCardiaca.Text);
+                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", int.Parse(txtFrecuenciaCardiaca.Text));
 
 
                 //Ejecutamos el SqlCommand
@@ -347,7 +365,7 @@ namespace ClinicaMontefiori
 
             //Evaluamos el resultado
             if (resultado >= 1)
-                MessageBox.Show("Empleado Agregado",
+                MessageBox.Show("Triega Agregado",
                                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Registro no realizado",
@@ -383,13 +401,13 @@ namespace ClinicaMontefiori
                 //Agregamos los parámetros
 
 
-                cmd.Parameters.AddWithValue("@id", txtIdCodigo.Text);
-                cmd.Parameters.AddWithValue("@id_cliente", txtIdCliente.Text);
-                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Text);
-                cmd.Parameters.AddWithValue("@temperatura", txtTemperatura.Text);
-                cmd.Parameters.AddWithValue("@peso", txtPeso.Text);
+                cmd.Parameters.AddWithValue("@id", int.Parse(txtIdCodigo.Text));
+                cmd.Parameters.AddWithValue("@id_cliente", int.Parse(boxPacientes.SelectedValue.ToString()));
+                cmd.Parameters.AddWithValue("@fecha", dtpFecha.Value);
+                cmd.Parameters.AddWithValue("@temperatura", double.Parse(txtTemperatura.Text));
+                cmd.Parameters.AddWithValue("@peso", int.Parse(txtPeso.Text));
                 cmd.Parameters.AddWithValue("@presion_arterial", txtPresionarterial.Text);
-                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", txtFrecuenciaCardiaca.Text);
+                cmd.Parameters.AddWithValue("@frecuencia_cardiaca", txtFrecuenciaCardiaca.Text.ToString());
 
 
                 //Ejecutamos el SqlCommand

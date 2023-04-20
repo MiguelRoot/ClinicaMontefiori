@@ -38,9 +38,7 @@ namespace ClinicaMontefiori
             this.label4 = new System.Windows.Forms.Label();
             this.text_movil = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.text_fecha = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.text_sexo = new System.Windows.Forms.TextBox();
             this.text_dni = new System.Windows.Forms.TextBox();
             this.text_telefono = new System.Windows.Forms.TextBox();
             this.text_correo = new System.Windows.Forms.TextBox();
@@ -49,13 +47,15 @@ namespace ClinicaMontefiori
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dataTableCliente = new System.Windows.Forms.DataGridView();
-            this.bnt_nuevo = new System.Windows.Forms.Button();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.text_id = new System.Windows.Forms.TextBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.text_fecha = new System.Windows.Forms.DateTimePicker();
+            this.boxSex = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,13 +135,6 @@ namespace ClinicaMontefiori
             this.label5.TabIndex = 2;
             this.label5.Text = "Numero movil";
             // 
-            // text_fecha
-            // 
-            this.text_fecha.Location = new System.Drawing.Point(567, 147);
-            this.text_fecha.Name = "text_fecha";
-            this.text_fecha.Size = new System.Drawing.Size(100, 20);
-            this.text_fecha.TabIndex = 1;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -150,13 +143,6 @@ namespace ClinicaMontefiori
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Correo";
-            // 
-            // text_sexo
-            // 
-            this.text_sexo.Location = new System.Drawing.Point(313, 116);
-            this.text_sexo.Name = "text_sexo";
-            this.text_sexo.Size = new System.Drawing.Size(100, 20);
-            this.text_sexo.TabIndex = 1;
             // 
             // text_dni
             // 
@@ -217,6 +203,7 @@ namespace ClinicaMontefiori
             // 
             // dataTableCliente
             // 
+            this.dataTableCliente.AllowUserToAddRows = false;
             this.dataTableCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTableCliente.Location = new System.Drawing.Point(12, 228);
@@ -228,15 +215,15 @@ namespace ClinicaMontefiori
             this.dataTableCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableCliente_CellClick);
             this.dataTableCliente.SelectionChanged += new System.EventHandler(this.dataTableCliente_SelectionChanged);
             // 
-            // bnt_nuevo
+            // btn_nuevo
             // 
-            this.bnt_nuevo.Location = new System.Drawing.Point(250, 83);
-            this.bnt_nuevo.Name = "bnt_nuevo";
-            this.bnt_nuevo.Size = new System.Drawing.Size(75, 23);
-            this.bnt_nuevo.TabIndex = 4;
-            this.bnt_nuevo.Text = "Nuevo";
-            this.bnt_nuevo.UseVisualStyleBackColor = true;
-            this.bnt_nuevo.Click += new System.EventHandler(this.bnt_nuevo_Click);
+            this.btn_nuevo.Location = new System.Drawing.Point(250, 83);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(75, 23);
+            this.btn_nuevo.TabIndex = 4;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.bnt_nuevo_Click);
             // 
             // btn_editar
             // 
@@ -295,16 +282,35 @@ namespace ClinicaMontefiori
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
+            // text_fecha
+            // 
+            this.text_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.text_fecha.Location = new System.Drawing.Point(567, 147);
+            this.text_fecha.Name = "text_fecha";
+            this.text_fecha.Size = new System.Drawing.Size(100, 20);
+            this.text_fecha.TabIndex = 5;
+            // 
+            // boxSex
+            // 
+            this.boxSex.FormattingEnabled = true;
+            this.boxSex.Location = new System.Drawing.Point(313, 116);
+            this.boxSex.Name = "boxSex";
+            this.boxSex.Size = new System.Drawing.Size(100, 21);
+            this.boxSex.TabIndex = 6;
+            this.boxSex.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.boxSex);
+            this.Controls.Add(this.text_fecha);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_editar);
-            this.Controls.Add(this.bnt_nuevo);
+            this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.dataTableCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label10);
@@ -317,12 +323,10 @@ namespace ClinicaMontefiori
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2x);
             this.Controls.Add(this.text_correo);
-            this.Controls.Add(this.text_fecha);
             this.Controls.Add(this.text_telefono);
             this.Controls.Add(this.text_movil);
             this.Controls.Add(this.text_dni);
             this.Controls.Add(this.text_materno);
-            this.Controls.Add(this.text_sexo);
             this.Controls.Add(this.text_paterno);
             this.Controls.Add(this.text_id);
             this.Controls.Add(this.text_nombre);
@@ -347,9 +351,7 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox text_movil;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox text_fecha;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox text_sexo;
         private System.Windows.Forms.TextBox text_dni;
         private System.Windows.Forms.TextBox text_telefono;
         private System.Windows.Forms.TextBox text_correo;
@@ -358,13 +360,15 @@ namespace ClinicaMontefiori
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataTableCliente;
-        private System.Windows.Forms.Button bnt_nuevo;
+        private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox text_id;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.DateTimePicker text_fecha;
+        private System.Windows.Forms.ComboBox boxSex;
     }
 }
 

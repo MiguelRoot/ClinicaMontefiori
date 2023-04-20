@@ -63,5 +63,10 @@ namespace ClinicaMontefiori
             formTriaje.MdiParent = this;
             formTriaje.Show();
         }
+
+        private void Portada_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

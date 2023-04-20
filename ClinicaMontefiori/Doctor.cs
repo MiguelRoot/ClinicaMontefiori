@@ -132,16 +132,26 @@ namespace ClinicaMontefiori
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                string message = "";
+                if(ex.Number == 8114)
+                {
+                    message = "Valores del formulario invalidos, por favor revise los campos";
+                } else
+                {
+                    message = ex.Message;
+                }
+
+                MessageBox.Show(message);
                 trx.Rollback();
             }
             finally
             {
                 cn.Close();
             }
-            dataTableDoctor.DataSource = cargarTable("doctorList");
+            
             if (resultado >= 1)
             {
+                dataTableDoctor.DataSource = cargarTable("doctorList");
                 MessageBox.Show("Doctor Agregado",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 statusFormDefaulot();
@@ -201,7 +211,7 @@ namespace ClinicaMontefiori
 
             if (resultado >= 1)
             {
-                MessageBox.Show("Proyecto actualizado",
+                MessageBox.Show("Doctor actualizado",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 statusFormDefaulot();
             }
@@ -281,7 +291,16 @@ namespace ClinicaMontefiori
                 catch (SqlException ex)
 
                 {
-                    MessageBox.Show(ex.Message);
+                    string message = "";
+                    if(ex.Number == 547)
+                    {
+                        message = "Solo se puede eliminar a doctores son clientes relacionados";
+                    } else
+                    {
+                        message = ex.Message;
+                    }
+
+                    MessageBox.Show(message);
                     trx.Rollback();
 
                 }
@@ -291,10 +310,11 @@ namespace ClinicaMontefiori
                     cn.Close();
 
                 }
-                dataTableDoctor.DataSource = cargarTable("doctorList");
+               
 
                 if (resultado >= 1)
                 {
+                    dataTableDoctor.DataSource = cargarTable("doctorList");
                     MessageBox.Show(resultado.ToString() + " Doctor eliminado",
                           "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -328,6 +348,7 @@ namespace ClinicaMontefiori
             ActualizarControl(textPaterno, "apellido_paterno");
             ActualizarControl(textMaterno, "apellido_materno");
             ActualizarControl(textDni, "dni");
+            ActualizarControl(textEspecialidad, "especialidad");
             ActualizarControl(textEspecialidad, "especialidad");
         }
 
